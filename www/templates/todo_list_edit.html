@@ -1,0 +1,45 @@
+<ion-view title="选中0项">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear" ng-click="selectAll()">全选</button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+
+    <div class="list" id="todolist">
+      <div class="item item-divider" ng-show="todolists.length"> 进行中 </div>
+      <div class="item item-checkbox" 
+        ng-repeat="todo in todolists" 
+        ng-show="todolists.length"
+        ng-class="getSelectedClass(todo)">
+        <label class="checkbox {{todo.classname}}">
+        <input type="checkbox" id="selected" name="selected" ion-stop-event ng-checked="isSelected(todo.id)" ng-click="updateSelection($event, todo.id)">
+        </label>
+        {{todo.title | limitTo:12}} 
+        <span class="badge">{{todo.date | displayDate}}</span>
+      </div>
+      <div class="item item-divider" ng-show="todolists_finish.length"> 已完成 </div>
+      <div class="item item-checkbox" 
+        ng-repeat="todo in todolists_finish" 
+        ng-show="todolists_finish.length"
+        ng-class="getSelectedClass(todo)">
+        <label class="checkbox checkbox-stable">
+        <input type="checkbox" name="selected" ion-stop-event ng-checked="isSelected(todo.id)" ng-click="updateSelection($event, todo.id)">
+        </label>
+        {{todo.title | limitTo:12}} 
+        <span class="badge">{{todo.date | displayDate}}</span>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bar-stable">
+  <div class="tabs tabs-icon-only" style="left:0;">
+    <a class="tab-item">
+      <i class="icon ion-folder" ng-click="move()"></i>
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-calendar" ng-click="setDate()"></i>
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-trash-a" ng-click="deleteTodo()"></i>
+    </a>
+  </div>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,45 @@
+<ion-view title="设置">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon-round"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <div class="list card">
+      <a class="item item-icon-left">
+        <i class="icon ion-ios7-alarm-outline"></i> 提醒设置
+      </a>
+      <a class="item item-icon-left item-icon-right" ng-click="showBgcolor=!showBgcolor" ng-show='showBgcolor'>
+        <i class="icon ion-settings"></i> 主题设置 <i class="icon ion-ios7-arrow-up" ng-show='showBgcolor'></i>
+      </a>
+      <a class="item item-icon-left item-icon-right" ng-click="showBgcolor=!showBgcolor" ng-show='!showBgcolor'>
+        <i class="icon ion-settings"></i> 主题设置 <i class="icon ion-ios7-arrow-down" ng-show='!showBgcolor'></i>
+      </a>
+      <div class="item item-text-wrap" ng-show='showBgcolor'>
+        <div class="row">
+          <div class="col"><button class="button button-positive" ng-click="setBgcolor(1)"></div>
+          <div class="col"><button class="button button-calm" ng-click="setBgcolor(2)"></div>
+          <div class="col"><button class="button button-balanced" ng-click="setBgcolor(3)"></div>
+        </div>
+        <div class="row">
+          <div class="col"><button class="button button-energized" ng-click="setBgcolor(4)"></div>
+          <div class="col"><button class="button button-assertive" ng-click="setBgcolor(5)"></div>
+          <div class="col"><button class="button button-royal" ng-click="setBgcolor(6)"></div>
+        </div>
+      </div>
+      <a class="item item-icon-left">
+        <i class="icon ion-share"></i> 分享给好友
+      </a>
+      <a class="item item-icon-left">
+        <i class="icon ion-loop"></i> 检查新版本
+      </a>
+      <a class="item item-icon-left item-icon-right" ng-click="showAbout=!showAbout" ng-show='showAbout'>
+        <i class="icon ion-help"></i> 关于 <i class="icon ion-ios7-arrow-up" ng-show='showAbout'></i>
+      </a>
+      <a class="item item-icon-left item-icon-right" ng-click="showAbout=!showAbout" ng-show='!showAbout'>
+        <i class="icon ion-help"></i> 关于 <i class="icon ion-ios7-arrow-down" ng-show='!showAbout'></i>
+      </a>
+      <div class="item item-text-wrap" ng-show='showAbout'>
+        <pre>  数码林是亚洲最早加入国际数字分析协会DAA的企业会员。作为DAA的一员，数码林与海外最前沿的分析师一起交流、商讨网站分析标准；并曾监修网站分析专家、WAW创始人Eric T.Peterson创作的《网站分析Hacks》一书日语版。</pre>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

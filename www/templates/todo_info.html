@@ -1,0 +1,68 @@
+<ion-view title="{{title}}">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-more"
+            ns-popover
+            ns-popover-template="moreMenu"
+            ns-popover-trigger="click"
+            ns-popover-theme="ns-popover-list-theme"
+            ns-popover-placement="bottom|right"
+            ns-popover-timeout="2"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="输入任务名称">
+      </label>
+      <a class="item item-icon-left item-icon-right" ng-click="deadline()">
+        <i class="icon ion-clock"></i> {{todo_date | date:"MM月dd日"}} <i class="icon"><img ion-stop-event width=36 height=36 ng-click="priority($event);" ng-src='img/priority_level_{{priority_level}}_light.png' 
+            ns-popover
+            ns-popover-template="priorityMenu"
+            ns-popover-trigger="click"
+            ns-popover-theme="ns-popover-list-theme"
+            ns-popover-placement="bottom|right"
+            ns-popover-timeout="2"/></i>
+      </a>
+    </div>
+    <textarea placeholder="这里可以输入详细内容" rows="25" ng-show="mode=='text'"></textarea>
+    <div class="list card" ng-show="mode=='list'">
+      <label class="item item-input item-icon-right" ng-repeat="item in items">
+        <i class="icon ion-close-circled placeholder-icon"></i>
+        <input type="text" value="{{item.title}}">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="按回车键添加更多" id="newItem" ng-model="newItem" ng-keydown="handleKeydown($event, newItem)">
+      </label>
+    </div>
+    <div class="list">
+      <div class="item" ng-repeat="img in images_list">
+       <img src="{{img}}" width="100%">
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <div class="button-bar">
+      <a class="button button-assertive" style="font-size:18px;font-weight:bold;"><b>保存</b></a>
+    </div>
+  </ion-footer-bar>
+</ion-view>
+<script type="text/ng-template" id="moreMenu">
+  <div class="triangle"></div>
+  <div class="ns-popover-tooltip" style="width:100px;">
+    <div class="list" style="margin-top:0;margin-bottom:0;">
+      <a class="item" ng-click="gotoListMode()" ng-show="mode=='text'"> 清单模式 </a>
+      <a class="item" ng-click="gotoTextMode()" ng-show="mode=='list'"> 文本模式 </a>
+      <a class="item" ng-click="addAttachment()"> 添加附件 </a>
+    </div>
+  </div>
+</script>
+<script type="text/ng-template" id="priorityMenu">
+  <div class="triangle"></div>
+  <div class="ns-popover-tooltip" style="width:100px;">
+    <div class="list" style="margin-top:0;margin-bottom:0;">
+      <a class="item item-icon-left" ng-click="setPriority(3)"> <i class="icon"><img width=36 height=36 src='img/priority_level_3_light.png'/></i> 高 </a>
+      <a class="item item-icon-left" ng-click="setPriority(2)"> <i class="icon"><img width=36 height=36 src='img/priority_level_2_light.png'/></i> 中 </a>
+      <a class="item item-icon-left" ng-click="setPriority(1)"> <i class="icon"><img width=36 height=36 src='img/priority_level_1_light.png'/></i> 低 </a>
+      <a class="item item-icon-left" ng-click="setPriority(0)"> <i class="icon"><img width=36 height=36 src='img/priority_level_0_light.png'/></i> 无 </a>
+    </div>
+  </div>
+</script>

@@ -1,0 +1,18 @@
+<ion-view title="列表一览">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon-round"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <ion-list show-delete="true">
+      <ion-item class="item item-button-right" ng-repeat="menu in menus">
+        {{menu.title}} 
+        <a class="button button-stable" ng-if="!menu.display" ng-click="menu.display=!menu.display">隐藏</a>
+        <a class="button button-stable" ng-if="menu.display" ng-click="menu.display=!menu.display">可见</a>
+        <ion-delete-button class="ion-trash-a"
+                           ng-click="menus.splice($index, 1)"
+                           ng-if="menu.edit">
+        </ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-view title="搜索">
+  <ion-content class="has-header">
+     <div class="list" style="margin:0;">
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="输入搜索关键字" ng-model="searchKey" ng-change="searchToDo(searchKey)">
+        </label>
+    </div>
+     <div class="list" style="margin:0;">
+      <div class="item item-divider item-energized" ng-show="searchKey"> 关于"{{searchKey | limitTo:12 }}"的搜索结果 <span class="badge">{{todolists.length}}</span></div>
+      <div class="item item-checkbox" 
+        ng-repeat="todo in todolists | orderBy:'-date'" 
+        ng-click="show({{todo.id}},{{todo.type}})"
+        ng-show="todolists.length">
+        <label class="checkbox {{todo.classname}}"><input type="checkbox" ng-click="finish({{todo.id}}, $event);"></label>
+        {{todo.title}} <span class="badge">{{todo.date | displayDate}}</span>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

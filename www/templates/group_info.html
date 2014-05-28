@@ -1,0 +1,27 @@
+<ion-view title="列表信息">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon-round"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <div class="list">
+      <div class="item item-divider"> 列表名称 </div>
+      <label class="item item-input">
+        <input type="text" placeholder="请输入名称">
+      </label>
+      <div class="item item-divider"> 状态 </div>
+      <li  class="item item-toggle">
+        <h2> 显示 </h2>
+        <p>在 “所有列表” 中显示？</p>
+        <label class="toggle toggle-positive">
+         <input type="checkbox">
+         <div class="track"><div class="handle"></div></div>
+        </label>
+      </li>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <div class="button-bar">
+      <a class="button button-assertive" style="font-size:18px;font-weight:bold;">保存</a>
+    </div>
+  </ion-footer-bar>
+</ion-view>
