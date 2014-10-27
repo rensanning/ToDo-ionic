@@ -13,3 +13,6 @@ cordova plugin add https://github.com/VitaliiBlagodir/cordova-plugin-datepicker.
 ```
 运行效果图：
 参考[here](http://rensanning.iteye.com/blog/2072034)
+```
+QQ交流群：
+311798409
